@@ -14,6 +14,7 @@ export function Posts() {
     queryKey: ["posts"],
     // args2: function that's going to run to fetch the data
     queryFn: fetchPosts,
+    staleTime: 2000 // 2 seconds
   });
 
   // data is undefined
