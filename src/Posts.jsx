@@ -22,7 +22,7 @@ export function Posts() {
   }, [currentPage, queryClient]);
 
   // basic fetch
-  const { data, isError, error, isLoading } = useQuery({
+  const { data, isError, error, isLoading, isFetching } = useQuery({
     // args1: what defines this data within the query cache, always an array
     queryKey: ["posts", currentPage],
     // args2: function that's going to run to fetch the data
@@ -39,6 +39,10 @@ export function Posts() {
   if (isLoading) {
     return <h3>Loading...</h3>;
   }
+
+  // if (isFetching) {
+  //   return <h3>Fetching is progress...</h3>;
+  // }
 
   // it tries the query function several times before it gives up
   // something that is configurable
